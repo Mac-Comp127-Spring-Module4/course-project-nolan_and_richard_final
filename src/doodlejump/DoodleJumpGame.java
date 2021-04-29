@@ -48,7 +48,16 @@ public class DoodleJumpGame {
 
         canvas.animate(() -> {
             doodle.updatePosition(0.05);
+
+            if (! doodle.updatePosition(0.05)) {
+                lives -= 1;
+                if (lives == 0) {
+                    System.exit(0);
+                }
+            }
         });
+
+        
     }
 
     /**
