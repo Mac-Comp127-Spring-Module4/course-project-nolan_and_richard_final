@@ -11,16 +11,22 @@ public class DoodleJumpGame {
    public static final int CANVAS_HEIGHT = 800;
    
    private final CanvasWindow canvas;
+   private Doodle doodle;
+   private JumpPadManager jumpPadManager;
+
+   private int lives = 1;
 
 
-   public DoodleJumpGame() {
+    public DoodleJumpGame() {
        canvas = new CanvasWindow("Doodle Jump Remastered", CANVAS_WIDTH, CANVAS_HEIGHT);
-   }
+
+       setupGame();
+    }
 
 
     public static void main(String[] args) {
        DoodleJumpGame game = new DoodleJumpGame();
-       // game.runGame();
+       game.runGame();
     }
 
 
@@ -28,20 +34,24 @@ public class DoodleJumpGame {
      * 
      */
     public void setupGame() {
-
+        createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
+        
+        canvas.draw();
+        canvas.pause(3000);
     }
 
     /**
      * 
      */
     public void runGame() {
-
+        canvas.onMouseMove(doodle::moveDoodle);
     }
 
     /**
      * 
      */
-    private void createDoodle() {
-
+    private void createDoodle(double leftX, double topY) {
+        doodle = new Doodle(leftX, topY);
+        doodle.addToCanvas(canvas);
     }
 }
