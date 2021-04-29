@@ -21,6 +21,7 @@ public class DoodleJumpGame {
 
     public DoodleJumpGame() {
        canvas = new CanvasWindow("Doodle Jump Remastered", CANVAS_WIDTH, CANVAS_HEIGHT);
+       jumpPadManager = new JumpPadManager(canvas);
 
        setupGame();
     }
@@ -38,6 +39,7 @@ public class DoodleJumpGame {
      */
     public void setupGame() {
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
+        jumpPadManager.createJumpPads();
         
         canvas.draw();
         canvas.pause(3000);
@@ -51,6 +53,7 @@ public class DoodleJumpGame {
         canvas.onMouseMove(doodle::moveDoodle);
 
         canvas.animate(() -> {
+            jumpPadManager.testHit(doodle);
             doodle.updatePosition(0.05);
 
             if (! doodle.updatePosition(0.05)) {

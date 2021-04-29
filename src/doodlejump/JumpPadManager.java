@@ -23,6 +23,16 @@ public class JumpPadManager {
     }
     
     public void createJumpPads() {
+        int numPads = 3;
+        double x = 100;
+        double y = 700;
+
+        for (int i = 0; i < numPads; i++) {
+            JumpPad jumpPad = new JumpPad(x, y);
+            x += 75;
+            jumpPad.addToCanvas(canvas);
+            jumpPads.add(jumpPad);
+        }
         // create some jump pads w/ randomization
     }
 
@@ -42,7 +52,7 @@ public class JumpPadManager {
     public void testHit(Doodle doodle) {
         for (Iterator<JumpPad> iterator = jumpPads.iterator(); iterator.hasNext();) {
             JumpPad jp = iterator.next();
-            if (jp.intersects(doodle, canvas)) {
+            if (jp.intersects(doodle)) {
                 removeJumpPads();
                 return;
             }

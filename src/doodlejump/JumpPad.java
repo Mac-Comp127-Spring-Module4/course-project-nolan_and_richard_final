@@ -43,10 +43,19 @@ public class JumpPad {
 
     /**
      * Tests for intersections between the doodle and this jump pad.
-     * @return true If the doodle intersects the pad.
      */
-    public boolean intersects(Doodle doodle, CanvasWindow canvas) {
-        //test for intersection
-        return true;
+    public boolean intersects(Doodle doodle) {
+        //test for intersection/ change y velo of doodle if true
+        double x = doodle.getLeftX();
+        double y = doodle.getTopY();
+        double width = Doodle.DOODLE_WIDTH;
+
+        if ((x + width) >= leftX && x <= rightX && (y + width) >= topY && y <= bottomY){  //if doodle is within the jump pad region
+            doodle.changeYVelo();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

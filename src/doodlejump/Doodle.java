@@ -11,7 +11,7 @@ public class Doodle {
     public static final double GRAVITY = -9.8;
 
     private double leftX, rightX, topY, bottomY;
-    private double yVelo;
+    private double yVelo = -50;
 
 
     public Doodle(double leftX, double topY) {
@@ -60,6 +60,30 @@ public class Doodle {
             return false;
         }
     }
+
+    /**
+     * Gets the doodle's left X location
+     * @return double of doodle's left X location
+     */
+    public double getLeftX() {
+        return leftX;
+    }
+
+    /**
+     * Gets the doodle's top Y location
+     * @return double of doodle's top Y location
+     */
+    public double getTopY() {
+        return topY;
+    }
+
+    /**
+     * Reverses the y velocity of the doodle
+     */
+    public void changeYVelo() {
+        yVelo = -yVelo;
+    }
+
 
     /**
      * Moves the doodle in accordance to the mouse location. Makes sure the doodle
