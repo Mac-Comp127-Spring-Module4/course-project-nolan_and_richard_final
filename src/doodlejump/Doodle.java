@@ -46,22 +46,22 @@ public class Doodle {
      */
     public void moveDoodle(MouseMotionEvent mouseCursor) {
         if (mouseCursor.getPosition().getX() > doodleShape.getX()){
-            doodleShape.setPosition(mouseCursor.getPosition().getX(), y);
+            doodleShape.setPosition(mouseCursor.getPosition().getX(), topY);
             leftX = mouseCursor.getPosition().getX();
             rightX = mouseCursor.getPosition().getX() + DOODLE_WIDTH;
         }
         if (mouseCursor.getPosition().getX() < doodleShape.getX()){
-            doodleShape.setPosition(mouseCursor.getPosition().getX(), y);
+            doodleShape.setPosition(mouseCursor.getPosition().getX(), topY);
             leftX = mouseCursor.getPosition().getX();
             rightX = mouseCursor.getPosition().getX() + DOODLE_WIDTH;
         }
         if (mouseCursor.getPosition().getX() <= 0){  //left-bound
-            doodleShape.setPosition(0, y);
+            doodleShape.setPosition(0, topY);
             leftX = 0;
             rightX = DOODLE_WIDTH;
         }
         if (mouseCursor.getPosition().getX() >= DoodleJumpGame.CANVAS_WIDTH - DOODLE_WIDTH){  //right-bound
-            doodleShape.setPosition(DoodleJumpGame.CANVAS_WIDTH - DOODLE_WIDTH, y);
+            doodleShape.setPosition(DoodleJumpGame.CANVAS_WIDTH - DOODLE_WIDTH, topY);
             leftX = DoodleJumpGame.CANVAS_WIDTH - DOODLE_WIDTH;
             rightX = DoodleJumpGame.CANVAS_WIDTH;
         }
