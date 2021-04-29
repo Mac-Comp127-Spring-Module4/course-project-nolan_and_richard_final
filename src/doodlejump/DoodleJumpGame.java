@@ -45,6 +45,10 @@ public class DoodleJumpGame {
      */
     public void runGame() {
         canvas.onMouseMove(doodle::moveDoodle);
+
+        canvas.animate(() -> {
+            doodle.updatePosition(0.05);
+        });
     }
 
     /**

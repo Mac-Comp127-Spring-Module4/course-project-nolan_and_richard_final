@@ -6,9 +6,13 @@ import edu.macalester.graphics.events.MouseMotionEvent;
 
 public class Doodle {
     private Rectangle doodleShape;
+
     public static final double DOODLE_WIDTH = 25;
-    private double y;
+    public static final double GRAVITY = -9.8;
+
     private double leftX, rightX, topY, bottomY;
+    private double yVelo;
+
 
     public Doodle(double leftX, double topY) {
         this.leftX = leftX;
@@ -37,6 +41,24 @@ public class Doodle {
     */
     public void removeFromCanvas(CanvasWindow canvas) {
         canvas.remove(doodleShape);
+    }
+
+    /**
+     * Update the doodle's position if it is in bounds
+     * @return true if the ball is in within the window
+     */
+    public boolean updatePosition(double dt) {
+        double newY;
+        newY = topY + (yVelo * dt);
+        if(newY <= DoodleJumpGame.CANVAS_HEIGHT && newY >= 0){  //if doodle will still be in the window
+            topY = newY;
+            doodleShape.setPosition(leftX, topY);
+            yVelo -= (GRAVITY * dt);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     /**
