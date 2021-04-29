@@ -1,3 +1,3 @@
-# Doodle Jump 0.5
+# Doodle Jump Remastered
 
 Info about your project goes here
