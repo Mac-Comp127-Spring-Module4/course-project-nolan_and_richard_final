@@ -4,7 +4,9 @@ import edu.macalester.graphics.CanvasWindow;
 
 
 /**
- * 
+ * The game of "Doodle Jump Remastered". Creates the canvas window, adds the supporting 
+ * elements (doodle, jump pads) to the window, and then animates/runs the game until the 
+ * doodle hits the bottom of the screen and the user loses. 
  */
 public class DoodleJumpGame {
    public static final int CANVAS_WIDTH = 800;
@@ -31,7 +33,8 @@ public class DoodleJumpGame {
 
 
     /**
-     * 
+     * Sets up the initial state of the game by creating a doodle and initial
+     * jump pads. Pauses for 3 seconds.
      */
     public void setupGame() {
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
@@ -41,7 +44,8 @@ public class DoodleJumpGame {
     }
 
     /**
-     * 
+     * Handles the animaton of the doodle and jump pads. Exits the game if the
+     * doodle hits the bottom of the canvas window (loss).
      */
     public void runGame() {
         canvas.onMouseMove(doodle::moveDoodle);
@@ -56,12 +60,12 @@ public class DoodleJumpGame {
                 }
             }
         });
-
-        
     }
 
     /**
-     * 
+     * Creates a doodle.
+     * @param leftX The left X location of where the doodle will be placed
+     * @param topY The top Y location of where the doodle will be placed
      */
     private void createDoodle(double leftX, double topY) {
         doodle = new Doodle(leftX, topY);

@@ -45,7 +45,7 @@ public class Doodle {
 
     /**
      * Update the doodle's position if it is in bounds
-     * @return true if the ball is in within the window
+     * @return true if the doodle is in within the window
      */
     public boolean updatePosition(double dt) {
         double newY;
