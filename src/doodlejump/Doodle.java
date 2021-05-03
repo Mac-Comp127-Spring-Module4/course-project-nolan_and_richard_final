@@ -8,7 +8,7 @@ public class Doodle {
     private Rectangle doodleShape;
 
     public static final double DOODLE_WIDTH = 25;
-    public static final double GRAVITY = -15;
+    public static final double GRAVITY = -25;
 
     private double leftX, topY;
     private double yVelo = -75;
@@ -66,10 +66,10 @@ public class Doodle {
 
 
     /**
-     * Reverses the y velocity of the doodle
+     * Resets the y velocity of the doodle
      */
     public void changeYVelo() {
-        yVelo = -yVelo;
+        yVelo = -125;
     }
 
     /**
