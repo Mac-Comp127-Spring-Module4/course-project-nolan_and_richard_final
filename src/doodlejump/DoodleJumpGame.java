@@ -4,6 +4,8 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsText;
 
+import java.awt.Color;
+
 
 /**
  * The game of "Doodle Jump Remastered". Creates the canvas window, adds the supporting 
@@ -51,6 +53,7 @@ public class DoodleJumpGame {
         score.setText("Score: 0");
         canvas.add(score);
 
+        canvas.setBackground(new Color(255, 255, 207));
         
         canvas.draw();
         canvas.pause(3000);
@@ -73,6 +76,7 @@ public class DoodleJumpGame {
             if (! doodle.updatePosition(0.05)) {
                 lives -= 1;
                 if (lives == 0) {
+                    System.out.println("Game Over. Your score was: " + scoreCount);
                     System.exit(0);
                 }
             }
