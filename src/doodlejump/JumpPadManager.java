@@ -64,15 +64,16 @@ public class JumpPadManager {
      * https://stackoverflow.com/questions/8104692/how-to-avoid-java-util-concurrentmodificationexception-when-iterating-through-an
      */
     // can change this a bit to be less confusing
-    public void testHit(Doodle doodle) {
+    public boolean testHit(Doodle doodle) {
         for (Iterator<JumpPad> iterator = jumpPads.iterator(); iterator.hasNext();) {
             JumpPad jp = iterator.next();
             if (jp.intersects(doodle)) {
                 removeJumpPads();
                 canvas.pause(5);
                 createJumpPads();
-                return;
+                return true;
             }
         }
+        return false;
     }
 }

@@ -1,6 +1,8 @@
 package doodlejump;
 
 import edu.macalester.graphics.CanvasWindow;
+import edu.macalester.graphics.FontStyle;
+import edu.macalester.graphics.GraphicsText;
 
 
 /**
@@ -15,6 +17,8 @@ public class DoodleJumpGame {
    private final CanvasWindow canvas;
    private Doodle doodle;
    private JumpPadManager jumpPadManager;
+   private GraphicsText score;
+   private int scoreCount = 0;
 
    private int lives = 1;
 
@@ -40,6 +44,13 @@ public class DoodleJumpGame {
     public void setupGame() {
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
         jumpPadManager.createJumpPads();
+
+        score = new GraphicsText();
+        score.setFont(FontStyle.BOLD, 20);
+        score.setCenter(10, 20);
+        score.setText("Score: 0");
+        canvas.add(score);
+
         
         canvas.draw();
         canvas.pause(3000);
@@ -53,7 +64,11 @@ public class DoodleJumpGame {
         canvas.onMouseMove(doodle::moveDoodle);
 
         canvas.animate(() -> {
-            jumpPadManager.testHit(doodle);
+            // jumpPadManager.testHit(doodle);
+            if (jumpPadManager.testHit(doodle)){
+                scoreCount++;
+                score.setText("Score: " + scoreCount);
+            }
             doodle.updatePosition(0.05);
 
             if (! doodle.updatePosition(0.05)) {
@@ -64,6 +79,7 @@ public class DoodleJumpGame {
             }
         });
     }
+    
 
     /**
      * Creates a doodle.
