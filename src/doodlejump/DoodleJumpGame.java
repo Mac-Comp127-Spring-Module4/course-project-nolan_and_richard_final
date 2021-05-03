@@ -64,7 +64,6 @@ public class DoodleJumpGame {
         canvas.onMouseMove(doodle::moveDoodle);
 
         canvas.animate(() -> {
-            // jumpPadManager.testHit(doodle);
             if (jumpPadManager.testHit(doodle)){
                 scoreCount++;
                 score.setText("Score: " + scoreCount);

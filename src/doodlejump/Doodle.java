@@ -79,7 +79,7 @@ public class Doodle {
     public boolean updatePosition(double dt) {
         double newY;
         newY = topY + (yVelo * dt);
-        if(newY <= DoodleJumpGame.CANVAS_HEIGHT && newY >= 0){  //if doodle will still be in the window
+        if(newY <= DoodleJumpGame.CANVAS_HEIGHT){  // if doodle doesn't touch the bottom of the window
             topY = newY;
             doodleShape.setPosition(leftX, topY);
             yVelo -= (GRAVITY * dt);

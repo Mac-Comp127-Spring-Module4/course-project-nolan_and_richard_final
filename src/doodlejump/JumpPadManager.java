@@ -26,12 +26,15 @@ public class JumpPadManager {
      * 
      */
     public void createJumpPads() {
-        int numPads = rand.nextInt(8)+1;
-        double x = 100;
+        int numPads = rand.nextInt(5)+1;
+        double x = 10;
         double y = 600;
 
         for (int i = 0; i < numPads; i++) {
             x += rand.nextInt(100) + 75;
+            if (x > DoodleJumpGame.CANVAS_WIDTH - JumpPad.JUMP_PAD_WIDTH - 100){
+                return;
+            }
             if (rand.nextBoolean()){
                 y += rand.nextInt(70);
             }
