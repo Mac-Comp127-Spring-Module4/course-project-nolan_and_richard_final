@@ -30,7 +30,6 @@ public class JumpPadManager {
         double y = 600;
 
         for (int i = 0; i < numPads; i++) {
-            JumpPad jumpPad = new JumpPad(x, y);
             x += rand.nextInt(100) + 75;
             if (rand.nextBoolean()){
                 y += rand.nextInt(70);
@@ -38,6 +37,7 @@ public class JumpPadManager {
             else {
                 y -= rand.nextInt(60);
             }
+            JumpPad jumpPad = new JumpPad(x, y);
             jumpPad.addToCanvas(canvas);
             jumpPads.add(jumpPad);
         }

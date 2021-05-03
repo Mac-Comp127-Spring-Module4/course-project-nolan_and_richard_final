@@ -11,7 +11,7 @@ public class Doodle {
     public static final double GRAVITY = -15;
 
     private double leftX, topY;
-    private double yVelo = -50;
+    private double yVelo = -75;
 
 
     public Doodle(double leftX, double topY) {
