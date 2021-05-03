@@ -5,6 +5,7 @@ import edu.macalester.graphics.CanvasWindow;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
 public class JumpPadManager {
     private CanvasWindow canvas;
     private List<JumpPad> jumpPads;
+    private Random rand = new Random();
 
     /**
      * 
@@ -23,13 +25,19 @@ public class JumpPadManager {
     }
     
     public void createJumpPads() {
-        int numPads = 3;
+        int numPads = rand.nextInt(8)+1;
         double x = 100;
-        double y = 700;
+        double y = 600;
 
         for (int i = 0; i < numPads; i++) {
             JumpPad jumpPad = new JumpPad(x, y);
-            x += 75;
+            x += rand.nextInt(100) + 75;
+            if (rand.nextBoolean()){
+                y += rand.nextInt(70);
+            }
+            else {
+                y -= rand.nextInt(60);
+            }
             jumpPad.addToCanvas(canvas);
             jumpPads.add(jumpPad);
         }

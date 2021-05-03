@@ -9,8 +9,8 @@ import edu.macalester.graphics.Rectangle;
  */
 public class JumpPad {
     private Rectangle jumpPadShape;
-    public static final double JUMP_PAD_LENGTH = 50;
-    public static final double JUMP_PAD_WIDTH = 10;
+    public static final double JUMP_PAD_LENGTH = 60;
+    public static final double JUMP_PAD_WIDTH = 7.5;
     private double leftX, rightX, topY, bottomY;
 
     public JumpPad(double leftX, double topY) {

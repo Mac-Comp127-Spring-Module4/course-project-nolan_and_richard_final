@@ -8,7 +8,7 @@ public class Doodle {
     private Rectangle doodleShape;
 
     public static final double DOODLE_WIDTH = 25;
-    public static final double GRAVITY = -9.8;
+    public static final double GRAVITY = -15;
 
     private double leftX, topY;
     private double yVelo = -50;
