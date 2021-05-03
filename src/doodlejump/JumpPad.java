@@ -50,7 +50,7 @@ public class JumpPad {
         double y = doodle.getTopY();
         double width = Doodle.DOODLE_WIDTH;
 
-        if ((x + width) >= leftX && x <= rightX && (y + width) >= topY && y <= bottomY){  //if doodle is within the jump pad region
+        if ((x + width) >= leftX && x <= rightX && (y + width) >= topY && y <= bottomY && doodle.getYVelo() > 0){  //if doodle is within the jump pad region and falling down
             doodle.changeYVelo();
             return true;
         }

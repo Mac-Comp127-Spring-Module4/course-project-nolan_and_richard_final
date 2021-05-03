@@ -57,6 +57,14 @@ public class Doodle {
     }
 
     /**
+     * 
+     */
+    public double getYVelo() {
+        return yVelo;
+    }
+
+
+    /**
      * Reverses the y velocity of the doodle
      */
     public void changeYVelo() {

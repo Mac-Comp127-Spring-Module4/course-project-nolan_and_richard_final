@@ -45,6 +45,11 @@ public class JumpPadManager {
     }
 
     public void removeJumpPads() {
+        for (Iterator<JumpPad> iterator = jumpPads.iterator(); iterator.hasNext();) {
+            JumpPad jp = iterator.next();
+            jp.removeFromCanvas(canvas);
+            iterator.remove();
+        }
         // remove all the jump pads, make sure ot clear list of pads too
     }
 
@@ -62,6 +67,8 @@ public class JumpPadManager {
             JumpPad jp = iterator.next();
             if (jp.intersects(doodle)) {
                 removeJumpPads();
+                canvas.pause(5);
+                createJumpPads();
                 return;
             }
         }
