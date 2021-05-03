@@ -1,3 +1,3 @@
-# Project Title Goes Here
+# Doodle Jump Remastered
 
 Info about your project goes here
