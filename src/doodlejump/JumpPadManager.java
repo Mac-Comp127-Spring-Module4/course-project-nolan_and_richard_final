@@ -16,14 +16,15 @@ public class JumpPadManager {
     private List<JumpPad> jumpPads;
     private Random rand = new Random();
 
-    /**
-     * 
-     */
     public JumpPadManager(CanvasWindow canvas) {
         jumpPads = new ArrayList<>();
         this.canvas = canvas;
     }
     
+
+    /**
+     * 
+     */
     public void createJumpPads() {
         int numPads = rand.nextInt(8)+1;
         double x = 100;
@@ -41,16 +42,17 @@ public class JumpPadManager {
             jumpPad.addToCanvas(canvas);
             jumpPads.add(jumpPad);
         }
-        // create some jump pads w/ randomization
     }
 
+    /**
+     * 
+     */
     public void removeJumpPads() {
         for (Iterator<JumpPad> iterator = jumpPads.iterator(); iterator.hasNext();) {
             JumpPad jp = iterator.next();
             jp.removeFromCanvas(canvas);
             iterator.remove();
         }
-        // remove all the jump pads, make sure ot clear list of pads too
     }
 
 

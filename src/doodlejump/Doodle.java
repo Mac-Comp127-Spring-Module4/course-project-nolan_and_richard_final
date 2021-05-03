@@ -57,7 +57,8 @@ public class Doodle {
     }
 
     /**
-     * 
+     * Get's the doodle's y velocity
+     * @return double of doodle's y velocity
      */
     public double getYVelo() {
         return yVelo;
