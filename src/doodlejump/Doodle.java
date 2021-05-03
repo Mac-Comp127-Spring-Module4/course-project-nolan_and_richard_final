@@ -4,6 +4,7 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.events.MouseMotionEvent;
 
+
 public class Doodle {
     private Rectangle doodleShape;
 
@@ -12,6 +13,7 @@ public class Doodle {
 
     private double leftX, topY;
     private double yVelo = -75;
+    private Image image = new Image();
 
 
     public Doodle(double leftX, double topY) {
@@ -20,7 +22,10 @@ public class Doodle {
 
         doodleShape = new Rectangle(leftX, topY, DOODLE_WIDTH, DOODLE_WIDTH);
 
-        doodleShape.setFilled(true);
+        // https://gamedev.stackexchange.com/questions/72924/how-do-i-add-an-image-inside-a-rectangle-or-a-circle-in-javafx
+        ImagePattern imagePattern = new ImagePattern("doodle.png");
+        doodleShape.setFill(imagePattern);
+
     }
 
 
