@@ -21,6 +21,7 @@ public class DoodleJumpGame {
    private JumpPadManager jumpPadManager;
    private CannonBallManager cannonBallManager;
    private GraphicsText score;
+   private GraphicsText intro;
    private int scoreCount = 0;
 
    private int lives = 1;
@@ -43,9 +44,16 @@ public class DoodleJumpGame {
 
     /**
      * Sets up the initial state of the game by creating a doodle, initial
-     * jump pads, score counter, and background. Pauses for 3 seconds.
+     * jump pads, score counter, and background. Displays intro message.
+     * Pauses for 7 seconds.
      */
     public void setupGame() {
+        intro = new GraphicsText();
+        intro.setFont(FontStyle.BOLD, 20);
+        intro.setCenter(25, 200);
+        intro.setText("Control the doodle with your mouse to land on the black jump pads (+1). \n Avoid falling off or hitting the red obstacles, if you do, you lose.");
+        canvas.add(intro);
+
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
         jumpPadManager.createJumpPads();
         cannonBallManager.createCannonBalls();
@@ -59,7 +67,8 @@ public class DoodleJumpGame {
         canvas.setBackground(new Color(255, 255, 207));
         
         canvas.draw();
-        canvas.pause(3000);
+        canvas.pause(7000);
+        canvas.remove(intro);
     }
 
     /**
