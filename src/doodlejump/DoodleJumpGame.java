@@ -19,7 +19,7 @@ public class DoodleJumpGame {
    private final CanvasWindow canvas;
    private Doodle doodle;
    private JumpPadManager jumpPadManager;
-   private CannonBall cannonBall;
+   private CannonBallManager cannonBallManager;
    private GraphicsText score;
    private int scoreCount = 0;
 
@@ -29,6 +29,7 @@ public class DoodleJumpGame {
     public DoodleJumpGame() {
        canvas = new CanvasWindow("Doodle Jump Remastered", CANVAS_WIDTH, CANVAS_HEIGHT);
        jumpPadManager = new JumpPadManager(canvas);
+       cannonBallManager = new CannonBallManager(canvas);
 
        setupGame();
     }
@@ -47,6 +48,7 @@ public class DoodleJumpGame {
     public void setupGame() {
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
         jumpPadManager.createJumpPads();
+        cannonBallManager.createCannonBalls();
 
         score = new GraphicsText();
         score.setFont(FontStyle.BOLD, 20);
@@ -55,9 +57,6 @@ public class DoodleJumpGame {
         canvas.add(score);
 
         canvas.setBackground(new Color(255, 255, 207));
-
-        cannonBall = new CannonBall(10, 600, 50, 45, CANVAS_WIDTH, CANVAS_HEIGHT);
-        cannonBall.addToCanvas(canvas);
         
         canvas.draw();
         canvas.pause(3000);
@@ -76,9 +75,9 @@ public class DoodleJumpGame {
                 score.setText("Score: " + scoreCount);
             }
             doodle.updatePosition(0.05);
-            cannonBall.updatePosition(0.05);
+            cannonBallManager.updatePostition(0.05);
 
-            if (! doodle.updatePosition(0.05)) {
+            if ((!doodle.updatePosition(0.05)) || cannonBallManager.testHit(doodle)) {
                 lives -= 1;
                 if (lives == 0) {
                     System.out.println("Game Over. Your score was: " + scoreCount);

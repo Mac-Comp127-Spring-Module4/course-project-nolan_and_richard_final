@@ -8,7 +8,7 @@ import java.awt.Color;
 
 
 public class CannonBall {
-    public static final double BALL_GRAVITY = -1;
+    public static final double BALL_GRAVITY = 0;
     public static final double BALL_RADIUS = 10;
     private double centerX, centerY, initialSpeed, xVelo, yVelo, initialAngle;
     private double maxX, maxY;
@@ -70,6 +70,23 @@ public class CannonBall {
             return true;
         }
         else{
+            return false;
+        }
+    }
+
+    /**
+     * Tests for intersections between the doodle and this cannonball.
+     */
+    public boolean intersects(Doodle doodle) {
+        //test for intersection/ end game if true
+        double x = doodle.getLeftX();
+        double y = doodle.getTopY();
+        double width = Doodle.DOODLE_WIDTH;
+
+        if ((x + width) >= (centerX - BALL_RADIUS) && x <= (centerX + BALL_RADIUS) && (y + width) >= (centerX - BALL_RADIUS) && y <= (centerX + BALL_RADIUS)){  //if doodle is within the cannon ball region
+            return true;
+        }
+        else {
             return false;
         }
     }
