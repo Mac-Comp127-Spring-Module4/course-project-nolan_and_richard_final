@@ -10,7 +10,6 @@ import java.awt.Color;
  * 
  */
 public class CannonBall {
-    public static final double BALL_GRAVITY = 0;
     public static final double BALL_RADIUS = 10;
     private double centerX, centerY, initialSpeed, xVelo, yVelo, initialAngle;
     private double maxX, maxY;
@@ -68,7 +67,6 @@ public class CannonBall {
             centerX = newX;
             centerY = newY;
             ballShape.setCenter(centerX, centerY);
-            yVelo -= (BALL_GRAVITY * dt);
             return true;
         }
         else{

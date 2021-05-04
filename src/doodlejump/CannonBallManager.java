@@ -27,28 +27,28 @@ public class CannonBallManager {
      */
     public void createCannonBalls() {
         int numBalls = rand.nextInt(3)+1;
-        double y = 400;
+        double y = 350;
         double speed = 40;
         double angle = 0;
         
         for (int i = 0; i < numBalls; i++) {
             if (rand.nextBoolean()){
-                y += rand.nextInt(60);
+                y += rand.nextInt(25);
             }
             else {
-                y -= rand.nextInt(30);
+                y -= rand.nextInt(25);
             }
             if (rand.nextBoolean()){
                 speed += rand.nextInt(15);
             }
             else {
-                speed -= rand.nextInt(10);
+                speed -= rand.nextInt(15);
             }
             if (rand.nextBoolean()){
-                angle += rand.nextInt(10);
+                angle += rand.nextInt(5);
             }
             else {
-                angle -= rand.nextInt(10);
+                angle -= rand.nextInt(5);
             }
 
             CannonBall cannonBall = new CannonBall(0, y, speed, angle, DoodleJumpGame.CANVAS_WIDTH, DoodleJumpGame.CANVAS_HEIGHT);

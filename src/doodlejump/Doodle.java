@@ -81,7 +81,7 @@ public class Doodle {
      * Resets the y velocity of the doodle
      */
     public void changeYVelo() {
-        yVelo = -125;
+        yVelo = -130;
     }
 
     /**
