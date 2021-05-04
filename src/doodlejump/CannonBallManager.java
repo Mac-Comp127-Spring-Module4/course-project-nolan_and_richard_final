@@ -54,6 +54,10 @@ public class CannonBallManager {
         }
     }
 
+    /**
+     * 
+     * @param dt
+     */
     public void updatePostition(double dt){
         for (Iterator<CannonBall> iterator = cannonBalls.iterator(); iterator.hasNext();) {
             CannonBall cb = iterator.next();
@@ -70,7 +74,11 @@ public class CannonBallManager {
         }
     }
 
-
+    /**
+     * 
+     * @param doodle
+     * @return
+     */
     public boolean testHit(Doodle doodle) {
         for (Iterator<CannonBall> iterator = cannonBalls.iterator(); iterator.hasNext();) {
             CannonBall cb = iterator.next();

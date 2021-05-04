@@ -6,7 +6,6 @@ import edu.macalester.graphics.Ellipse;
 import java.awt.Color;
 
 
-
 public class CannonBall {
     public static final double BALL_GRAVITY = 0;
     public static final double BALL_RADIUS = 10;
@@ -78,7 +77,7 @@ public class CannonBall {
      * Tests for intersections between the doodle and this cannonball.
      */
     public boolean intersects(Doodle doodle) {
-        //test for intersection/ end game if true
+        //test for intersection
         double x = doodle.getLeftX();
         double y = doodle.getTopY();
         double width = Doodle.DOODLE_WIDTH;
