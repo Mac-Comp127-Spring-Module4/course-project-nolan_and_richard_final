@@ -57,7 +57,16 @@ public class CannonBallManager {
     public void updatePostition(double dt){
         for (Iterator<CannonBall> iterator = cannonBalls.iterator(); iterator.hasNext();) {
             CannonBall cb = iterator.next();
-            cb.updatePosition(dt);
+            if (cb.updatePosition(dt)) {
+                cb.updatePosition(dt);
+            }
+            else {
+                cb.removeFromCanvas(canvas);
+                iterator.remove();
+            }
+        }
+        if (cannonBalls.isEmpty()){
+            createCannonBalls();
         }
     }
 
