@@ -6,6 +6,9 @@ import edu.macalester.graphics.Ellipse;
 import java.awt.Color;
 
 
+/**
+ * 
+ */
 public class CannonBall {
     public static final double BALL_GRAVITY = 0;
     public static final double BALL_RADIUS = 10;
@@ -76,13 +79,22 @@ public class CannonBall {
     /**
      * Tests for intersections between the doodle and this cannonball.
      */
-    public boolean intersects(Doodle doodle) {
-        //test for intersection
-        double x = doodle.getLeftX();
-        double y = doodle.getTopY();
-        double width = Doodle.DOODLE_WIDTH;
-
-        if ((x + width) >= (centerX - BALL_RADIUS) && x <= (centerX + BALL_RADIUS) && (y + width) >= (centerX - BALL_RADIUS) && y <= (centerX + BALL_RADIUS)){  //if doodle is within the cannon ball region
+    public boolean intersects(Doodle doodle, CanvasWindow canvas) {
+        double x = this.getCenterX();
+        double y = this.getCenterY();
+        double radius = CannonBall.BALL_RADIUS;
+        
+        if ((x + radius) >= doodle.getLeftX() && (x - radius) <= (doodle.getLeftX() + Doodle.DOODLE_WIDTH) && (y + radius) >= doodle.getTopY() && (y - radius) <= (doodle.getTopY() + Doodle.DOODLE_WIDTH)) {  //if ball is within the bounds of the brick
+            if((canvas.getElementAt(x + radius + 0.05, y) != null) || (canvas.getElementAt(x - radius - 0.05, y) != null)){  //right or left side of ball test
+                return true;
+            }
+            if((canvas.getElementAt(x, y + radius + 0.05) != null) || (canvas.getElementAt(x, y - radius - 0.05) != null)){  //top or bottom side of ball test
+                return true;
+            }
+            if((canvas.getElementAt(x + radius + 0.05, y - radius - 0.05) != null) || (canvas.getElementAt(x - radius - 0.05, y - radius - 0.05) != null) || 
+            (canvas.getElementAt(x + radius + 0.05, y + radius + 0.05) != null) || (canvas.getElementAt(x - radius - 0.05, y + radius + 0.05) != null)) {  //upper right, upper left, bottom right, bottom left corner of ball test
+                return true;
+            }
             return true;
         }
         else {

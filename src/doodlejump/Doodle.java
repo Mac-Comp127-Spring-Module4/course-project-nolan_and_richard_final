@@ -8,6 +8,9 @@ import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.events.MouseMotionEvent;
 
 
+/**
+ * 
+ */
 public class Doodle {
     private Rectangle doodleShape;
 

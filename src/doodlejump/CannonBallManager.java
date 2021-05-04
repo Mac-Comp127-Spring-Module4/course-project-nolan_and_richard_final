@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Random;
 
 
+/**
+ * 
+ */
 public class CannonBallManager {
     private CanvasWindow canvas;
     private List<CannonBall> cannonBalls;
@@ -82,7 +85,7 @@ public class CannonBallManager {
     public boolean testHit(Doodle doodle) {
         for (Iterator<CannonBall> iterator = cannonBalls.iterator(); iterator.hasNext();) {
             CannonBall cb = iterator.next();
-            if (cb.intersects(doodle)) {
+            if (cb.intersects(doodle, canvas)) {
                 return true;
             }
         }
