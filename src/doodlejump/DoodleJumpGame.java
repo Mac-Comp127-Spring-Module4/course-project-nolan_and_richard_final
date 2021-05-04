@@ -19,6 +19,7 @@ public class DoodleJumpGame {
    private final CanvasWindow canvas;
    private Doodle doodle;
    private JumpPadManager jumpPadManager;
+   private CannonBall cannonBall;
    private GraphicsText score;
    private int scoreCount = 0;
 
@@ -40,8 +41,8 @@ public class DoodleJumpGame {
 
 
     /**
-     * Sets up the initial state of the game by creating a doodle and initial
-     * jump pads. Pauses for 3 seconds.
+     * Sets up the initial state of the game by creating a doodle, initial
+     * jump pads, score counter, and background. Pauses for 3 seconds.
      */
     public void setupGame() {
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
@@ -50,10 +51,13 @@ public class DoodleJumpGame {
         score = new GraphicsText();
         score.setFont(FontStyle.BOLD, 20);
         score.setCenter(10, 20);
-        score.setText("Score: 0");
+        score.setText("Score: " + scoreCount);
         canvas.add(score);
 
         canvas.setBackground(new Color(255, 255, 207));
+
+        cannonBall = new CannonBall(10, 600, 50, 45, CANVAS_WIDTH, CANVAS_HEIGHT);
+        cannonBall.addToCanvas(canvas);
         
         canvas.draw();
         canvas.pause(3000);
@@ -72,6 +76,7 @@ public class DoodleJumpGame {
                 score.setText("Score: " + scoreCount);
             }
             doodle.updatePosition(0.05);
+            cannonBall.updatePosition(0.05);
 
             if (! doodle.updatePosition(0.05)) {
                 lives -= 1;
