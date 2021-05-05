@@ -23,6 +23,7 @@ public class DoodleJumpGame {
    private CannonBallManager cannonBallManager;
    private GraphicsText score;
    private GraphicsText intro;
+   private GraphicsText gameOver;
    private int scoreCount = 0;
 
    private int lives = 1;
@@ -65,6 +66,10 @@ public class DoodleJumpGame {
         score.setText("Score: " + scoreCount);
         canvas.add(score);
 
+        gameOver = new GraphicsText();
+        gameOver.setFont(FontStyle.BOLD, 32);
+        gameOver.setCenter(150, 400);
+
         canvas.setBackground(new Color(255, 255, 207));
         
         canvas.draw();
@@ -90,7 +95,11 @@ public class DoodleJumpGame {
             if ((!doodle.updatePosition(0.05)) || cannonBallManager.testHit(doodle)) {
                 lives -= 1;
                 if (lives == 0) {
-                    System.out.println("Game Over. Your score was: " + scoreCount);
+                    canvas.removeAll();
+                    gameOver.setText("Game over. Your score was: " + scoreCount);
+                    canvas.add(gameOver);
+                    canvas.draw();
+                    canvas.pause(4000);
                     System.exit(0);
                 }
             }
