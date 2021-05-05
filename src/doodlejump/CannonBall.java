@@ -10,6 +10,8 @@ import java.awt.Color;
  * The cannonBall class creates a cannonball object that
  * the doodle must avoid to not lose. The cannonball is in the
  * shape of an ellipse and is red. 
+ * 
+ * Acknowledgements: Borrowed from Nolan Meyer, HW2
  */
 public class CannonBall {
     public static final double BALL_RADIUS = 10;
