@@ -25,7 +25,6 @@ public class Doodle {
         this.topY = topY;
 
         doodleShape = new Rectangle(leftX, topY, DOODLE_WIDTH, DOODLE_WIDTH);
-
         doodleShape.setFillColor(Color.GREEN);
     }
 
