@@ -32,8 +32,8 @@ public class CannonBall {
         this.maxY = maxY;
                 
         double initialAngleRadians = Math.toRadians(this.initialAngle);
-        xVelo = this.initialSpeed * Math.cos(initialAngleRadians);   // initial x velocity
-        yVelo = this.initialSpeed * -1 * Math.sin(initialAngleRadians);  // initial y velocity
+        xVelo = this.initialSpeed * Math.cos(initialAngleRadians);   //initial x velocity
+        yVelo = this.initialSpeed * -1 * Math.sin(initialAngleRadians);  //initial y velocity
         
         ballShape = new Ellipse(centerX, centerY, BALL_RADIUS * 2, BALL_RADIUS * 2);  //ellipse set top and left most points
         ballShape.setFilled(true);
@@ -82,7 +82,7 @@ public class CannonBall {
         double y = this.getCenterY();
         double radius = CannonBall.BALL_RADIUS;
         
-        if ((x + radius) >= doodle.getLeftX() && (x - radius) <= (doodle.getLeftX() + Doodle.DOODLE_WIDTH) && (y + radius) >= doodle.getTopY() && (y - radius) <= (doodle.getTopY() + Doodle.DOODLE_WIDTH)) {  //if ball is within the bounds of the brick
+        if ((x + radius) >= doodle.getLeftX() && (x - radius) <= (doodle.getLeftX() + Doodle.DOODLE_WIDTH) && (y + radius) >= doodle.getTopY() && (y - radius) <= (doodle.getTopY() + Doodle.DOODLE_WIDTH)) {  //if ball is within the bounds of the doodle
             if((canvas.getElementAt(x + radius + 0.05, y) != null) || (canvas.getElementAt(x - radius - 0.05, y) != null)){  //right or left side of ball test
                 return true;
             }

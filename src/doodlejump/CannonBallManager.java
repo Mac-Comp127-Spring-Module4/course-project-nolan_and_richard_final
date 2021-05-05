@@ -23,7 +23,9 @@ public class CannonBallManager {
 
 
     /**
-     * 
+     * Creates a random amount of cannon balls from 1-3 with varying speeds,
+     * varying angles, and varying start points. Adds them to the canvas and 
+     * list of cannon balls.
      */
     public void createCannonBalls() {
         int numBalls = rand.nextInt(3)+1;
@@ -58,13 +60,18 @@ public class CannonBallManager {
     }
 
     /**
+     * Updates all of the cannon ball's positions if they are within
+     * the canvas width. Removes them if they are outside the canvas.
+     * Calls to create new cannon balls if all are off the screen.
+     * @param dt a time step
      * 
-     * @param dt
+     * Acknowledgements: This method was created with help from the following website:
+     * https://stackoverflow.com/questions/8104692/how-to-avoid-java-util-concurrentmodificationexception-when-iterating-through-an
      */
     public void updatePostition(double dt){
         for (Iterator<CannonBall> iterator = cannonBalls.iterator(); iterator.hasNext();) {
             CannonBall cb = iterator.next();
-            if (cb.updatePosition(dt)) {
+            if (cb.updatePosition(dt)) { //if within canvas
                 cb.updatePosition(dt);
             }
             else {
@@ -72,15 +79,18 @@ public class CannonBallManager {
                 iterator.remove();
             }
         }
-        if (cannonBalls.isEmpty()){
+        if (cannonBalls.isEmpty()){  //if there are no more cannon balls, create new ones
             createCannonBalls();
         }
     }
 
     /**
-     * 
+     * Tests to see if any of the cannon balls intersect with the doodle.
      * @param doodle
-     * @return
+     * @return true if they intersect
+     * 
+     * Acknowledgements: This method was created with help from the following website:
+     * https://stackoverflow.com/questions/8104692/how-to-avoid-java-util-concurrentmodificationexception-when-iterating-through-an
      */
     public boolean testHit(Doodle doodle) {
         for (Iterator<CannonBall> iterator = cannonBalls.iterator(); iterator.hasNext();) {

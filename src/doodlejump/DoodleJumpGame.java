@@ -10,7 +10,8 @@ import java.awt.Color;
 /**
  * The game of "Doodle Jump Remastered". Creates the canvas window, adds the supporting 
  * elements (doodle, jump pads, cannonballs) to the window, and then animates/runs the game until the 
- * doodle hits the bottom of the screen or a cannonball and the user loses. 
+ * doodle hits the bottom of the screen or a cannonball and the user loses. Keeps track of the score
+ * in the upper left corner.
  */
 public class DoodleJumpGame {
    public static final int CANVAS_WIDTH = 800;

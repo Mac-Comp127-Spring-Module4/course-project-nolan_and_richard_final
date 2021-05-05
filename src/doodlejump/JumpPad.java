@@ -45,7 +45,6 @@ public class JumpPad {
      * Tests for intersections between the doodle and this jump pad.
      */
     public boolean intersects(Doodle doodle) {
-        //test for intersection/ change y velo of doodle if true
         double x = doodle.getLeftX();
         double y = doodle.getTopY();
         double width = Doodle.DOODLE_WIDTH;
