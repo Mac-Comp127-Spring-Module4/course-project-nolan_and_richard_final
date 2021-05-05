@@ -5,7 +5,8 @@ import edu.macalester.graphics.Rectangle;
 
 
 /**
- * 
+ * The jumpPad class creates a jumpPad object in the shape of a
+ * rectangle that serves as what the doodle can jump on.
  */
 public class JumpPad {
     private Rectangle jumpPadShape;

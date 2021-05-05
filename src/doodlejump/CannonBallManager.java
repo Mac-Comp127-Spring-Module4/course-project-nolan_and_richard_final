@@ -9,7 +9,9 @@ import java.util.Random;
 
 
 /**
- * 
+ * The cannonBallManager controls all of the cannonBall objects,
+ * namely their creation, removal, movement, and checking for intersections
+ * with the doodle.
  */
 public class CannonBallManager {
     private CanvasWindow canvas;

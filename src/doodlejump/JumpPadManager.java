@@ -9,7 +9,8 @@ import java.util.Random;
 
 
 /**
- * 
+ * JumpPadManager controls all of the jumpPads, including their creation,
+ * removal, and checking for intersections with the doodle.
  */
 public class JumpPadManager {
     private CanvasWindow canvas;
