@@ -8,19 +8,19 @@ import java.util.List;
 import java.util.Random;
 
 
-/**
- * JumpPadManager controls all of the jumpPads, including their creation,
- * removal, and checking for intersections with the doodle.
- */
-public class JumpPadManager {
-    private CanvasWindow canvas;
-    private List<JumpPad> jumpPads;
-    private Random rand = new Random();
+    /**
+     * JumpPadManager controls all of the jumpPads, including their creation,
+     * removal, and checking for intersections with the doodle.
+     */
+    public class JumpPadManager {
+        private CanvasWindow canvas;
+        private List<JumpPad> jumpPads;
+        private Random rand = new Random();
 
-    public JumpPadManager(CanvasWindow canvas) {
-        jumpPads = new ArrayList<>();
-        this.canvas = canvas;
-    }
+        public JumpPadManager(CanvasWindow canvas) {
+            jumpPads = new ArrayList<>();
+            this.canvas = canvas;
+        }
     
 
     /**

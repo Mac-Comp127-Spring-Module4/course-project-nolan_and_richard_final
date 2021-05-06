@@ -7,20 +7,20 @@ import java.awt.Color;
 
 
 /**
- * The cannonBall class creates a cannonball object that
- * the doodle must avoid to not lose. The cannonball is in the
+ * The obstacle class creates a obstacle object that
+ * the doodle must avoid to not lose. The obstacle is in the
  * shape of an ellipse and is red. 
  * 
- * Acknowledgements: Borrowed from Nolan Meyer, HW2
+ * Acknowledgements: Borrowed from cannonBall.java Nolan Meyer, HW2
  */
-public class CannonBall {
+public class Obstacle {
     public static final double BALL_RADIUS = 10;
     private double centerX, centerY, initialSpeed, xVelo, yVelo, initialAngle;
     private double maxX, maxY;
     private double newX, newY;
     private Ellipse ballShape;
 
-    public CannonBall(
+    public Obstacle(
             double centerX,
             double centerY,
             double initialSpeed,
@@ -45,29 +45,29 @@ public class CannonBall {
     }
 
     /**
-     * Get's the cannonball's center X location
-     * @return double of cannonball's center X location
+     * Get's the obstacle's center X location
+     * @return double of obstacle's center X location
      */
     public double getCenterX() {
         return centerX;
     }
 
     /**
-     * Get's the cannonball's center Y location
-     * @return double of cannonball's center Y location
+     * Get's the obstacle's center Y location
+     * @return double of obstacle's center Y location
      */
     public double getCenterY() {
         return centerY;
     }
 
     /**
-     * Update the cannon ball's position if it is in bounds
-     * @return true if the ball is in within the canvas
+     * Update the obstacle's position if it is in bounds
+     * @return true if the obstacle is in within the canvas
      */
     public boolean updatePosition(double dt) {
         newX = centerX + (xVelo * dt);
         newY = centerY + (yVelo * dt);
-        if((newX <= maxX && newX >= 0) && (newY <= maxY && newY >= 0)){  //if cannonball will still be in the window
+        if((newX <= maxX && newX >= 0) && (newY <= maxY && newY >= 0)){  //if obstacle will still be in the window
             centerX = newX;
             centerY = newY;
             ballShape.setCenter(centerX, centerY);
@@ -79,12 +79,12 @@ public class CannonBall {
     }
 
     /**
-     * Tests for intersections between the doodle and this cannonball.
+     * Tests for intersections between the doodle and this obstacle.
      */
     public boolean intersects(Doodle doodle, CanvasWindow canvas) {
         double x = this.getCenterX();
         double y = this.getCenterY();
-        double radius = CannonBall.BALL_RADIUS;
+        double radius = Obstacle.BALL_RADIUS;
         
         if ((x + radius) >= doodle.getLeftX() && (x - radius) <= (doodle.getLeftX() + Doodle.DOODLE_WIDTH) && (y + radius) >= doodle.getTopY() && (y - radius) <= (doodle.getTopY() + Doodle.DOODLE_WIDTH)) {  //if ball is within the bounds of the doodle
             if((canvas.getElementAt(x + radius + 0.05, y) != null) || (canvas.getElementAt(x - radius - 0.05, y) != null)){  //right or left side of ball test
@@ -105,14 +105,14 @@ public class CannonBall {
     }
 
     /**
-     * Adds the cannonball's shape to the given canvas.
+     * Adds the obstacle's shape to the given canvas.
      */
     public void addToCanvas(CanvasWindow canvas) {
         canvas.add(ballShape);
     }
 
     /**
-     * Removes the cannonball's shape from the given canvas.
+     * Removes the obstacle's shape from the given canvas.
      */
     public void removeFromCanvas(CanvasWindow canvas) {
         canvas.remove(ballShape);

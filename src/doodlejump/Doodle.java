@@ -10,7 +10,7 @@ import edu.macalester.graphics.events.MouseMotionEvent;
 /**
  * The doodle class creates a doodle object which is controlled by the user's
  * mouse location. The doodle is in the shape of a green square and can
- * bounce of jump pads.
+ * bounce off of jump pads.
  */
 public class Doodle {
     private Rectangle doodleShape;

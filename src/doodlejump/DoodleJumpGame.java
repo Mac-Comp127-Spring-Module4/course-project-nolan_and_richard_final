@@ -9,8 +9,8 @@ import java.awt.Color;
 
 /**
  * The game of "Doodle Jump Remastered". Creates the canvas window, adds the supporting 
- * elements (doodle, jump pads, cannonballs) to the window, and then animates/runs the game until the 
- * doodle hits the bottom of the screen or a cannonball and the user loses. Keeps track of the score
+ * elements (doodle, jump pads, obstacles) to the window, and then animates/runs the game until the 
+ * doodle hits the bottom of the screen or a obstacle and the user loses. Keeps track of the score
  * in the upper left corner.
  */
 public class DoodleJumpGame {
@@ -20,7 +20,7 @@ public class DoodleJumpGame {
    private final CanvasWindow canvas;
    private Doodle doodle;
    private JumpPadManager jumpPadManager;
-   private CannonBallManager cannonBallManager;
+   private ObstacleManager obstacleManager;
    private GraphicsText score;
    private GraphicsText intro;
    private GraphicsText gameOver;
@@ -32,7 +32,7 @@ public class DoodleJumpGame {
     public DoodleJumpGame() {
        canvas = new CanvasWindow("Doodle Jump Remastered", CANVAS_WIDTH, CANVAS_HEIGHT);
        jumpPadManager = new JumpPadManager(canvas);
-       cannonBallManager = new CannonBallManager(canvas);
+       obstacleManager = new ObstacleManager(canvas);
 
        setupGame();
     }
@@ -58,7 +58,7 @@ public class DoodleJumpGame {
 
         createDoodle(CANVAS_WIDTH/2.0, CANVAS_HEIGHT/2.0);
         jumpPadManager.createJumpPads();
-        cannonBallManager.createCannonBalls();
+        obstacleManager.createObstacles();
 
         score = new GraphicsText();
         score.setFont(FontStyle.BOLD, 20);
@@ -90,9 +90,9 @@ public class DoodleJumpGame {
                 score.setText("Score: " + scoreCount);
             }
             doodle.updatePosition(0.05);
-            cannonBallManager.updatePostition(0.05);
+            obstacleManager.updatePostition(0.05);
 
-            if ((!doodle.updatePosition(0.05)) || cannonBallManager.testHit(doodle)) {
+            if ((!doodle.updatePosition(0.05)) || obstacleManager.testHit(doodle)) {
                 lives -= 1;
                 if (lives == 0) {
                     canvas.removeAll();
